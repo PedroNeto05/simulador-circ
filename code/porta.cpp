@@ -5,43 +5,77 @@
 ///
 
 /// Porta NOT
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaNOT::simular(const std::vector<bool3S>& in_port){
+    if (in_port.size() != 1) return false;
+    setOutput(~in_port.at(0));
+    return true;
+}
 
 /// Porta AND
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaAND::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output &= in_port.at(i);
+    }
+    setOutput(output);
+    return true;
+}
 
 /// Porta NAND
-
-//
-// FALTA IMPLEMENTAR
-//
-
+bool PortaNAND::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output &= in_port.at(i) ;
+    }
+    output = ~output;
+    setOutput(output);
+    return true;
+}
 /// Porta OR
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaOR::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output |= in_port.at(i);
+    }
+    setOutput(output);
+    return true;
+}
 
 /// Porta NOR
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaNOR::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output |= in_port.at(i);
+    }
+    output = ~output;
+    setOutput(output);
+    return true;
+}
 
 /// Porta XOR
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaXOR::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output ^= in_port.at(i);
+    }
+    setOutput(output);
+    return true;
+}
 
 /// Porta NXOR
-
-//
-// FALTA IMPLEMENTAR
-//
+bool PortaNXOR::simular(const std::vector<bool3S>& in_port){
+    if (Nin_port == 0 || in_port.size() != (unsigned long long)getNumInputs()) return false;
+    bool3S output = in_port.at(0);
+    for (int i = 1; i < getNumInputs(); ++i){
+        output ^= in_port.at(i);
+    }
+    output = ~output;
+    setOutput(output);
+    return true;
+}

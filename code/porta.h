@@ -97,10 +97,11 @@ class PortaNOT: public Porta
 public:
   // Construtor default (fixa o numero de entradas da porta como sendo 1)
   PortaNOT(): Porta(1) {}
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+  ptr_Porta clone() const override{return new PortaNOT(*this);}
+
+  std::string getName() const override{ return "NT"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaAND: public Porta
@@ -114,10 +115,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaAND(*this);}
+
+  std::string getName() const override{ return "AN"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaNAND: public Porta
@@ -131,10 +134,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaNAND(*this);}
+
+  std::string getName() const override{ return "NA"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaOR: public Porta
@@ -148,10 +153,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaOR   (*this);}
+
+  std::string getName() const override{ return "OR"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaNOR: public Porta
@@ -165,10 +172,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaNOR(*this);}
+
+  std::string getName() const override{ return "NO"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaXOR: public Porta
@@ -182,10 +191,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaXOR(*this);}
+
+  std::string getName() const override{ return "XO"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 class PortaNXOR: public Porta
@@ -199,10 +210,12 @@ public:
   {
     if (NI<2) Nin_port=0;
   }
-  // DEMAIS FUNCOES DA PORTA
-  //
-  // FALTA DECLARAR
-  //
+
+  ptr_Porta clone() const override{return new PortaNXOR(*this);}
+
+  std::string getName() const override{ return "NX"; }
+
+  bool simular(const std::vector<bool3S>& in_port) override;
 };
 
 #endif // _PORTA_H_

@@ -4,7 +4,7 @@ PORTAS
 2) OR 2
 3) AN 5
 4) NT 1
-5) NT 1
+5) NT 1	
 CONEXOES
 1) -1 -2
 2) 1 3
